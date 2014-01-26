@@ -31,7 +31,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="pageTitle" Text="{CustomResource RuntimeAppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+            <TextBlock x:Name="pageTitle" x:Uid="AppNameTextBlock" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="20,0,0,0"/>
         </Grid>
         <Grid Grid.Row="1">
@@ -44,8 +44,8 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="{CustomResource PickGamePrompt}" />
-                <Button Grid.Row="1" x:Name="PickGameButton" Click="PickGameButton_Click" Content="{CustomResource PickGameButtonString}" />
+                <TextBlock Grid.Row="0" x:Uid="PickGamePromptTextBlock" />
+                <Button Grid.Row="1" x:Uid="PickGameButton" x:Name="PickGameButton" Click="PickGameButton_Click" Content="{CustomResource PickGameButtonString}" />
             </Grid>
         </Grid>
     </Grid>

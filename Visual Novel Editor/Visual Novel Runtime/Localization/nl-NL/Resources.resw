@@ -134,6 +134,15 @@ Omar007</value>
   <data name="AboutFlyout_DevsHeader.Text" xml:space="preserve">
     <value>Ontwikkelaars</value>
   </data>
+  <data name="AppNameTextBlock.Text" xml:space="preserve">
+    <value>VNRT</value>
+  </data>
+  <data name="PickGameButton.Content" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PickGamePromptTextBlock.Text" xml:space="preserve">
+    <value />
+  </data>
   <data name="SettingsPaneAbout" xml:space="preserve">
     <value>Over</value>
   </data>

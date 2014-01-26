@@ -157,10 +157,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Visual Novel Localization\Visual Novel Localization.csproj">
-      <Project>{b51ff0e2-26df-453d-b9b7-aeec80a7ec19}</Project>
-      <Name>Visual Novel Localization</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Visual Novel Utilities\Visual Novel Utilities.csproj">
       <Project>{595c4114-f7e6-4661-ab52-317e8b625fb7}</Project>
       <Name>Visual Novel Utilities</Name>
