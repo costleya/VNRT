@@ -94,7 +94,8 @@ namespace Vnrt.Runtime
         {
             SettingsPane.GetForCurrentView().CommandsRequested += (s, e) =>
             {
-                SettingsCommand defaultsCommand = new SettingsCommand("about", "About",
+                string aboutFlyoutName = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("SettingsPaneAbout");
+                SettingsCommand defaultsCommand = new SettingsCommand("about", aboutFlyoutName,
                     (handler) =>
                     {
                         AboutSettingsFlyout sf = new AboutSettingsFlyout();

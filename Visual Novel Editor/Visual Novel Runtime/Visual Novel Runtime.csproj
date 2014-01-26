@@ -139,6 +139,8 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <PRIResource Include="Localization\en-US\Resources.resw" />
+    <PRIResource Include="Localization\nl-NL\Resources.resw" />
     <None Include="Visual Novel Runtime_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
