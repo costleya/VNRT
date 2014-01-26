@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual Novel Editor", "App1\Visual Novel Editor.csproj", "{5D980CC8-49B4-480A-AB9F-2B655187CA1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual Novel Editor", "Visual Novel Editor\Visual Novel Editor.csproj", "{5D980CC8-49B4-480A-AB9F-2B655187CA1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual Novel Runtime", "Visual Novel Runtime\Visual Novel Runtime.csproj", "{E498ED3C-E041-45AF-9ECA-8016DDFB4839}"
 EndProject

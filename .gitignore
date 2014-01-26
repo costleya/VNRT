@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Visual Novel Editor/Visual Novel Editor/obj/
+/Visual Novel Editor/Visual Novel Localization/obj/
+/Visual Novel Editor/Visual Novel Runtime/obj/
+/Visual Novel Editor/Visual Novel Utilities/obj/
+*.suo
