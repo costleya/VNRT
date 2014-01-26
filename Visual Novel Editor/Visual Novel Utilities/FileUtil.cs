@@ -36,5 +36,61 @@ namespace Vnrt.Utilities
                 return null;
             }
         }
+
+        public static async Task<string> LoadImages()
+        {
+            try
+            {
+                FileOpenPicker picker = new FileOpenPicker();
+                picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+                picker.ViewMode = PickerViewMode.List;
+                picker.FileTypeFilter.Add(".jpg");
+                picker.FileTypeFilter.Add(".png");
+                picker.FileTypeFilter.Add(".svg");
+                picker.FileTypeFilter.Add(".bmp");
+                picker.CommitButtonText = "OK";
+                IReadOnlyList<StorageFile> ret = await picker.PickMultipleFilesAsync();
+                if (ret != null)
+                {
+                    //Stuff
+                    return "";
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static async Task<string> LoadSounds()
+        {
+            try
+            {
+                FileOpenPicker picker = new FileOpenPicker();
+                picker.SuggestedStartLocation = PickerLocationId.MusicLibrary;
+                picker.ViewMode = PickerViewMode.List;
+                picker.FileTypeFilter.Add(".midi");
+                picker.FileTypeFilter.Add(".wav");
+                picker.CommitButtonText = "OK";
+                IReadOnlyList<StorageFile> ret = await picker.PickMultipleFilesAsync();
+                if (ret != null)
+                {
+                    //Stuff
+                    return "";
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
