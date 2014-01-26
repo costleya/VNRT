@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Vnrt.Localization;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -16,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Resources;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
@@ -26,20 +28,6 @@ namespace Vnrt.Runtime
     /// </summary>
     sealed partial class App : Application, INotifyPropertyChanged
     {
-        private string hello;
-
-        public string Hello
-        {
-            get
-            {
-                return hello;
-            }
-            set
-            {
-                hello = value;
-                OnPropertyChanged();
-            }
-        }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -48,6 +36,7 @@ namespace Vnrt.Runtime
         public App()
         {
             this.InitializeComponent();
+            CustomXamlResourceLoader.Current = new LocalizationExtension();
             this.Suspending += OnSuspending;
         }
 
