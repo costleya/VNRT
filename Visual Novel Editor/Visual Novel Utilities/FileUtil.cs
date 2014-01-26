@@ -36,11 +36,5 @@ namespace Vnrt.Utilities
                 return null;
             }
         }
-
-        //Test Model. Replace with actual Model
-        public class Game
-        {
-            public string Name { get; set; }
-        }
     }
 }

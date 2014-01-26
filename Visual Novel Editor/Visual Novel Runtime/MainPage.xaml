@@ -47,9 +47,6 @@
                 <TextBlock Grid.Row="0" Text="{CustomResource PickGamePrompt}" />
                 <Button Grid.Row="1" x:Name="PickGameButton" Click="PickGameButton_Click" Content="{CustomResource PickGameButtonString}" />
             </Grid>
-            <Grid Grid.Row="1">
-                <TextBlock x:Name="ResultText" />
-            </Grid>
         </Grid>
     </Grid>
 </Page>

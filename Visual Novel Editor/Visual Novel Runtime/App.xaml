@@ -2,7 +2,7 @@
     x:Class="Vnrt.Runtime.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Visual_Novel_Runtime">
+    xmlns:local="using:Vnrt.Runtime">
     <Application.Resources>
         <ResourceDictionary>
             

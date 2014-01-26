@@ -26,7 +26,7 @@ namespace Vnrt.Runtime
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application, INotifyPropertyChanged
+    sealed partial class App : Application
     {
 
         /// <summary>
@@ -110,17 +110,6 @@ namespace Vnrt.Runtime
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberNameAttribute] string caller = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(caller));
-            }
-
         }
     }
 }

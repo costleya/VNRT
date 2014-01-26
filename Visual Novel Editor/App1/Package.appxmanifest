@@ -1,38 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-
-  <Identity Name="eca67750-42e1-4356-9762-eaea80aadc01"
-            Publisher="CN=zelda_000"
-            Version="1.0.0.0" />
-
+  <Identity Name="eca67750-42e1-4356-9762-eaea80aadc01" Publisher="CN=zelda_000" Version="1.0.0.0" />
   <Properties>
-    <DisplayName>App1</DisplayName>
+    <DisplayName>Visual Editor Editor</DisplayName>
     <PublisherDisplayName>zelda_000</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.3.0</OSMinVersion>
     <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
   </Prerequisites>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-        Executable="$targetnametoken$.exe"
-        EntryPoint="App1.App">
-        <m2:VisualElements
-            DisplayName="App1"
-            Square150x150Logo="Assets\Logo.png"
-            Square30x30Logo="Assets\SmallLogo.png"
-            Description="App1"
-            ForegroundText="light"
-            BackgroundColor="#464646">
-            <m2:SplashScreen Image="Assets\SplashScreen.png" />
-        </m2:VisualElements>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Vnrt.Editor.App">
+      <m2:VisualElements DisplayName="Visual Novel Editor" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="App1" ForegroundText="light" BackgroundColor="#464646">
+        <m2:SplashScreen Image="Assets\SplashScreen.png" />
+      </m2:VisualElements>
     </Application>
   </Applications>
   <Capabilities>

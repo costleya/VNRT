@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Vnrt.Utilities;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
@@ -22,18 +24,26 @@ namespace Vnrt.Runtime
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class GamePage : Page, INotifyPropertyChanged
     {
 
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private Game game;
 
         /// <summary>
         /// This can be changed to a strongly typed view model.
         /// </summary>
-        public ObservableDictionary DefaultViewModel
+        public Game CurrentGame
         {
-            get { return this.defaultViewModel; }
+            get
+            {
+                return game;
+            }
+            set
+            {
+                game = value;
+                OnPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -46,9 +56,10 @@ namespace Vnrt.Runtime
         }
 
 
-        public MainPage()
+        public GamePage()
         {
             this.InitializeComponent();
+            DataContext = this;
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
@@ -94,6 +105,10 @@ namespace Vnrt.Runtime
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            if(e.Parameter != null)
+            {
+                CurrentGame = e.Parameter as Game;
+            }
             navigationHelper.OnNavigatedTo(e);
         }
 
@@ -104,10 +119,14 @@ namespace Vnrt.Runtime
 
         #endregion
 
-        private async void PickGameButton_Click(object sender, RoutedEventArgs e)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberNameAttribute] string caller = "")
         {
-            Game game = await FileUtil.LoadGame();
-            Frame.Navigate(typeof(GamePage), game);
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
+            }
         }
     }
 }
