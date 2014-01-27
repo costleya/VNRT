@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.IO;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 
@@ -22,7 +24,9 @@ namespace Vnrt.Utilities
                 StorageFile ret = await picker.PickSingleFileAsync();
                 if (ret != null)
                 {
-                    Game game = new Game();
+                    Task<Stream> reader = ret.OpenStreamForReadAsync();
+                    reader.RunSynchronously();
+                    Game game = new XmlSerializer(typeof(Game)).Deserialize(reader.Result) as Game;
                     game.Name = ret.DisplayName;
                     return game;
                 }
@@ -36,7 +40,33 @@ namespace Vnrt.Utilities
                 return null;
             }
         }
+        public static async Task SaveGame(Game game)
+        {
+            try
+            {
+                FileOpenPicker picker = new FileOpenPicker();
+                picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+                picker.ViewMode = PickerViewMode.List;
+                picker.FileTypeFilter.Add(".vnrt");
+                picker.CommitButtonText = "Start";
+                StorageFile ret = await picker.PickSingleFileAsync();
+                if (ret != null)
+                {
+                    XmlSerializer serializez = new XmlSerializer(typeof(Game));
+                    Task<Stream> writer = ret.OpenStreamForWriteAsync();
+                    writer.RunSynchronously();
+                    serializez.Serialize(writer.Result,game);
+                }
+                else
+                {
 
+                }
+            }
+            catch
+            {
+
+            }
+        }
         public static async Task<string> LoadImages()
         {
             try

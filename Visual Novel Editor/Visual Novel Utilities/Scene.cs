@@ -4,53 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using Windows.Storage;
+
 
 namespace Vnrt.Utilities
 {
-    [XmlRoot]
-    public class Game
+    public class Scene
     {
-        private readonly List<Scene> mSceneList = new List<Scene>();
-        private String mName;
-        private String mAuthor;
+        private readonly List<Instance> mInstanceList = new List<Instance>();
+        private String mBground;
+        private String mBsound;
 
-        public List<Scene> SceneList
+        public List<Instance> InstanceList
         {
             get
             {
-                return SceneList;
+                return mInstanceList;
             }
         }
-        public String Name
+        public String Bground
         {
             get
             {
-                return mName;
-            }
-            set
-            {
-                if(value != null)
-                {
-                    mName = value;
-                }
-                else
-                {
-                    throw new ArgumentNullException();
-                }
-            }
-        }
-        public String Author
-        {
-            get
-            {
-                return mAuthor;
+                return mBground;
             }
             set
             {
                 if (value != null)
                 {
-                    mAuthor = value;
+                    mBground = value;
                 }
                 else
                 {
@@ -58,10 +39,23 @@ namespace Vnrt.Utilities
                 }
             }
         }
-
-        public Game()
+        public String Bsound
         {
-
+            get
+            {
+                return mBsound;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    mBsound = value;
+                }
+                else
+                {
+                    throw new ArgumentNullException();
+                }
+            }
         }
     }
 }
