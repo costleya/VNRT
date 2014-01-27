@@ -138,10 +138,10 @@ Omar007</value>
     <value>VNRT</value>
   </data>
   <data name="PickGameButton.Content" xml:space="preserve">
-    <value />
+    <value>Kies Spel</value>
   </data>
   <data name="PickGamePromptTextBlock.Text" xml:space="preserve">
-    <value />
+    <value>Kies een spel om te spelen.</value>
   </data>
   <data name="SettingsPaneAbout" xml:space="preserve">
     <value>Over</value>
