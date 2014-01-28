@@ -19,7 +19,7 @@ namespace Vnrt.Utilities
         {
             get
             {
-                return SceneList;
+                return mSceneList;
             }
         }
         public String Name
@@ -30,7 +30,7 @@ namespace Vnrt.Utilities
             }
             set
             {
-                if(value != null)
+                if (value != null)
                 {
                     mName = value;
                 }

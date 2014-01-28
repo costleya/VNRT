@@ -1,0 +1,14 @@
+﻿<Page
+    x:Class="XMLTester.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XMLTester"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <TextBox Name="Console" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="200" Text="" AcceptsReturn="True"   />
+
+    </Grid>
+</Page>

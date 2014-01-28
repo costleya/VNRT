@@ -24,10 +24,8 @@ namespace Vnrt.Utilities
                 StorageFile ret = await picker.PickSingleFileAsync();
                 if (ret != null)
                 {
-                    Task<Stream> reader = ret.OpenStreamForReadAsync();
-                    reader.RunSynchronously();
-                    Game game = new XmlSerializer(typeof(Game)).Deserialize(reader.Result) as Game;
-                    game.Name = ret.DisplayName;
+                    Stream reader = await ret.OpenStreamForReadAsync();
+                    Game game = new XmlSerializer(typeof(Game)).Deserialize(reader) as Game;
                     return game;
                 }
                 else
@@ -53,9 +51,9 @@ namespace Vnrt.Utilities
                 if (ret != null)
                 {
                     XmlSerializer serializez = new XmlSerializer(typeof(Game));
-                    Task<Stream> writer = ret.OpenStreamForWriteAsync();
-                    writer.RunSynchronously();
-                    serializez.Serialize(writer.Result,game);
+                    Stream writer = await ret.OpenStreamForWriteAsync();
+
+                    serializez.Serialize(writer,game);
                 }
                 else
                 {

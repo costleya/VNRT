@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Serialization;
 namespace Vnrt.Utilities
 {
     public class Instance
@@ -11,6 +11,7 @@ namespace Vnrt.Utilities
         private readonly List<Character> mCharacters = new List<Character>();
         private Dialog mDialog;
 
+        [XmlArray(ElementName="Characters",IsNullable=true)]
         public List<Character> Characters
         {
             get
@@ -18,6 +19,7 @@ namespace Vnrt.Utilities
                 return mCharacters;
             }
         }
+        [XmlElement(IsNullable=true)]
         public Dialog Dialog
         {
             get

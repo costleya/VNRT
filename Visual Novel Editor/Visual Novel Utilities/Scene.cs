@@ -14,6 +14,7 @@ namespace Vnrt.Utilities
         private String mBground;
         private String mBsound;
 
+        [XmlArray("Scenes")]
         public List<Instance> InstanceList
         {
             get

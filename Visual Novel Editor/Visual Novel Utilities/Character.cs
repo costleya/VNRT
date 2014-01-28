@@ -8,6 +8,8 @@ namespace Vnrt.Utilities
 {
     public class Character
     {
+        //private String Name;
+
         //ToDo
     }
 }
