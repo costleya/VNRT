@@ -11,57 +11,14 @@ namespace Vnrt.Utilities
     [XmlRoot]
     public class Game
     {
-        private readonly List<Scene> mSceneList = new List<Scene>();
-        private String mName;
-        private String mAuthor;
-
-        public List<Scene> SceneList
-        {
-            get
-            {
-                return mSceneList;
-            }
-        }
-        public String Name
-        {
-            get
-            {
-                return mName;
-            }
-            set
-            {
-                if (value != null)
-                {
-                    mName = value;
-                }
-                else
-                {
-                    throw new ArgumentNullException();
-                }
-            }
-        }
-        public String Author
-        {
-            get
-            {
-                return mAuthor;
-            }
-            set
-            {
-                if (value != null)
-                {
-                    mAuthor = value;
-                }
-                else
-                {
-                    throw new ArgumentNullException();
-                }
-            }
-        }
+        public String Name { get; set; }
+        public String Author { get; set; }
+        [XmlArray(ElementName = "Scenes")]
+        public List<Scene> Scenes { get; set; }
 
         public Game()
         {
-
+            Scenes = new List<Scene>();
         }
     }
 }

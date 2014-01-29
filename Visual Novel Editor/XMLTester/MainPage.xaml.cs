@@ -27,17 +27,68 @@ namespace XMLTester
         public MainPage()
         {
             this.InitializeComponent();
-            loadtask();
+            LoadTask();
         }
-        public async void loadtask()
+        public async void LoadTask()
         {
             //Game mygame = new Game();
             //mygame.Name = "Super Stream Fighter";
             //mygame.Author = "David Patry";
             //mygame.SceneList.Add(new Scene());
 
-            Game mygame2 = await FileUtil.LoadGame();
-            Console.Text = mygame2.Name + "\n" + mygame2.Author+ "\n";
+            //Game mygame2 = await FileUtil.LoadGame();
+            //Console.Text = mygame2.Name + "\n" + mygame2.Author+ "\n";
+
+            Game game = new Game();
+            game.Name = "Super Stream Fighter";
+            game.Author = "David Patry";
+
+            Scene scene = new Scene();
+            scene.BackgroundImage = "A.jpg";
+            scene.BackgroundMusic = "B.wav";
+
+            Instance inst = new Instance();
+            Dialog d = new Dialog();
+            d.Text = "Sample Text";
+            inst.Dialog = d;
+            Character c = new Character();
+            c.Name = "Aaron";
+            inst.Characters.Add(c);
+
+            Instance inst2 = new Instance();
+            Dialog d2 = new Dialog();
+            d2.Text = "Test Text";
+            inst2.Dialog = d2;
+            Character c2 = new Character();
+            c2.Name = "Brandon";
+            inst2.Characters.Add(c2);
+
+            scene.Instances.Add(inst);
+            scene.Instances.Add(inst2);
+
+            Scene scene2 = new Scene();
+            scene.BackgroundImage = "C.png";
+            scene.BackgroundMusic = "D.wav";
+
+            Instance inst3 = new Instance();
+            Dialog d3 = new Dialog();
+            d3.Text = "Test";
+            inst.Dialog = d3;
+            Character c3 = new Character();
+            c3.Name = "Omar";
+            Character c4 = new Character();
+            c4.Name = "David";
+            inst3.Characters.Add(c3);
+            inst3.Characters.Add(c4);
+
+            scene2.Instances.Add(inst3);
+
+            game.Scenes.Add(scene);
+            game.Scenes.Add(scene2);
+
+            await FileUtil.SaveGame(game);
+            Game newGame = await FileUtil.LoadGame();
+            Console.Text = "Game Name: " + newGame.Name + "\nBackground Music of Scene 1: " + newGame.Scenes[0].BackgroundMusic + "\nSecond character in the first instance of scene 2: " +newGame.Scenes[1].Instances[0].Characters[1].Name;
         }
     }
 }

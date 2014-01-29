@@ -8,7 +8,6 @@ namespace Vnrt.Utilities
 {
     public class Dialog
     {
-
-        //ToDo
+        public string Text { get; set; }
     }
 }

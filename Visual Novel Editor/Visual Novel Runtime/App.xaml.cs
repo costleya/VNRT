@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Vnrt.Localization;
 using Vnrt.Runtime.View.Settings;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -38,7 +37,6 @@ namespace Vnrt.Runtime
         public App()
         {
             this.InitializeComponent();
-            CustomXamlResourceLoader.Current = new LocalizationExtension();
             this.Suspending += OnSuspending;
         }
 
@@ -96,14 +94,14 @@ namespace Vnrt.Runtime
             {
                 string aboutFlyoutName = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("SettingsPaneAbout");
                 SettingsCommand defaultsCommand = new SettingsCommand("about", aboutFlyoutName,
-                    (handler) =>
-                    {
-                        AboutSettingsFlyout sf = new AboutSettingsFlyout();
-                        sf.Show();
-                    });
+                        (handler) =>
+                {
+                    AboutSettingsFlyout sf = new AboutSettingsFlyout();
+                    sf.Show();
+                });
                 e.Request.ApplicationCommands.Add(defaultsCommand);
             };
- 
+
             base.OnWindowCreated(args);
         }
 

@@ -7,6 +7,8 @@ using System.Xml.Serialization;
 using System.IO;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.UI.ViewManagement;
+using Windows.Storage.Provider;
 
 namespace Vnrt.Utilities
 {
@@ -24,8 +26,11 @@ namespace Vnrt.Utilities
                 StorageFile ret = await picker.PickSingleFileAsync();
                 if (ret != null)
                 {
-                    Stream reader = await ret.OpenStreamForReadAsync();
-                    Game game = new XmlSerializer(typeof(Game)).Deserialize(reader) as Game;
+                    Game game = null;
+                    using (StringReader reader = new StringReader(await FileIO.ReadTextAsync(ret)))
+                    {
+                        game = new XmlSerializer(typeof(Game)).Deserialize(reader) as Game;
+                    }
                     return game;
                 }
                 else
@@ -38,22 +43,33 @@ namespace Vnrt.Utilities
                 return null;
             }
         }
+
         public static async Task SaveGame(Game game)
         {
             try
             {
-                FileOpenPicker picker = new FileOpenPicker();
+                FileSavePicker picker = new FileSavePicker();
                 picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-                picker.ViewMode = PickerViewMode.List;
-                picker.FileTypeFilter.Add(".vnrt");
-                picker.CommitButtonText = "Start";
-                StorageFile ret = await picker.PickSingleFileAsync();
-                if (ret != null)
-                {
-                    XmlSerializer serializez = new XmlSerializer(typeof(Game));
-                    Stream writer = await ret.OpenStreamForWriteAsync();
+                picker.DefaultFileExtension = ".vnrt";
+                picker.FileTypeChoices.Add("Visual Novel", new string[] {".vnrt"});
+                picker.SuggestedFileName = "MyGame";
+                picker.CommitButtonText = "Save";
 
-                    serializez.Serialize(writer,game);
+                StorageFile file = await picker.PickSaveFileAsync();
+                if (file != null)
+                {
+                    CachedFileManager.DeferUpdates(file);
+                    XmlSerializer serializer = new XmlSerializer(typeof(Game));
+                    using (StringWriter buffer = new StringWriter())
+                    {
+                        serializer.Serialize(buffer, game);
+                        await FileIO.WriteTextAsync(file, buffer.ToString());
+                    }
+                    FileUpdateStatus status = await CachedFileManager.CompleteUpdatesAsync(file);
+                    if(status == FileUpdateStatus.Complete)
+                    {
+                        //Done
+                    }
                 }
                 else
                 {

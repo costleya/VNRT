@@ -8,35 +8,13 @@ namespace Vnrt.Utilities
 {
     public class Instance
     {
-        private readonly List<Character> mCharacters = new List<Character>();
-        private Dialog mDialog;
+        public Dialog Dialog { get; set; }
+        [XmlArray(ElementName = "Characters")]
+        public List<Character> Characters { get; set; }
 
-        [XmlArray(ElementName="Characters",IsNullable=true)]
-        public List<Character> Characters
+        public Instance()
         {
-            get
-            {
-                return mCharacters;
-            }
-        }
-        [XmlElement(IsNullable=true)]
-        public Dialog Dialog
-        {
-            get
-            {
-                return mDialog;
-            }
-            set
-            {
-                if (value != null)
-                {
-                    mDialog = value;
-                }
-                else
-                {
-                    throw new ArgumentNullException();
-                }
-            }
+            Characters = new List<Character>();
         }
 
     }
