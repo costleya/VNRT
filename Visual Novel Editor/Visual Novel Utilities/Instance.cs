@@ -14,7 +14,7 @@ namespace Vnrt.Utilities
 
         public Instance()
         {
-            Characters = new List<Character>();
+
         }
 
     }

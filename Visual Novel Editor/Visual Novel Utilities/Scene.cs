@@ -18,8 +18,7 @@ namespace Vnrt.Utilities
 
         public Scene()
         {
-            Id = Guid.NewGuid().ToString("N");
-            Instances = new List<Instance>();
+
         }
     }
 }

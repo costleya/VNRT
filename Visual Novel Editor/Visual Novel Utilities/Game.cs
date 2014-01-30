@@ -18,7 +18,7 @@ namespace Vnrt.Utilities
 
         public Game()
         {
-            Scenes = new List<Scene>();
+
         }
     }
 }

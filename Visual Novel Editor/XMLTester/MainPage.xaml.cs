@@ -42,10 +42,13 @@ namespace XMLTester
             Game game = new Game();
             game.Name = "Super Stream Fighter";
             game.Author = "David Patry";
+            game.Scenes = new List<Scene>();
 
             Scene scene = new Scene();
+            scene.Id = Guid.NewGuid().ToString();
             scene.BackgroundImage = "A.jpg";
             scene.BackgroundMusic = "B.wav";
+            scene.Instances = new List<Instance>();
 
             Instance inst = new Instance();
             Dialog d = new Dialog();
@@ -53,6 +56,7 @@ namespace XMLTester
             inst.Dialog = d;
             Character c = new Character();
             c.Name = "Aaron";
+            inst.Characters = new List<Character>();
             inst.Characters.Add(c);
 
             Instance inst2 = new Instance();
@@ -61,23 +65,27 @@ namespace XMLTester
             inst2.Dialog = d2;
             Character c2 = new Character();
             c2.Name = "Brandon";
+            inst2.Characters = new List<Character>();
             inst2.Characters.Add(c2);
 
             scene.Instances.Add(inst);
             scene.Instances.Add(inst2);
 
             Scene scene2 = new Scene();
+            scene2.Id = Guid.NewGuid().ToString();
             scene.BackgroundImage = "C.png";
             scene.BackgroundMusic = "D.wav";
+            scene2.Instances = new List<Instance>();
 
             Instance inst3 = new Instance();
             Dialog d3 = new Dialog();
             d3.Text = "Test";
-            inst.Dialog = d3;
+            inst3.Dialog = d3;
             Character c3 = new Character();
             c3.Name = "Omar";
             Character c4 = new Character();
             c4.Name = "David";
+            inst3.Characters = new List<Character>();
             inst3.Characters.Add(c3);
             inst3.Characters.Add(c4);
 
