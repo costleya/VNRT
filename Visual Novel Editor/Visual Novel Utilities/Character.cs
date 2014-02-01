@@ -8,7 +8,7 @@ namespace Vnrt.Utilities
 {
     public class Character
     {
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         //ToDo
     }

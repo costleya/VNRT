@@ -42,7 +42,16 @@
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <Grid Grid.Row="1" DataContext="{Binding CurrentGame}">
-            <TextBlock FontSize="22" Text="{Binding Name}" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="22" Text="{Binding Name}" Grid.Row="0"/>
+            <Button Grid.Row="1" Click="Button_Click">Run Script</Button>
+            <TextBlock x:Name="ResultText" Grid.Row="2"></TextBlock>
+            <WebView Grid.Row="3" x:Name="GamePageView" Source="ms-appx-web:///Assets/Web/index.html" />
         </Grid>
     </Grid>
 </Page>

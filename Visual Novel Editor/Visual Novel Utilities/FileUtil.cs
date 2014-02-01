@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
+using Newtonsoft.Json;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.ViewManagement;
@@ -27,10 +28,7 @@ namespace Vnrt.Utilities
                 if (ret != null)
                 {
                     Game game = null;
-                    using (StringReader reader = new StringReader(await FileIO.ReadTextAsync(ret)))
-                    {
-                        game = new XmlSerializer(typeof(Game)).Deserialize(reader) as Game;
-                    }
+                    game = await Task.Run(async () => JsonConvert.DeserializeObject<Game>(await FileIO.ReadTextAsync(ret)));
                     return game;
                 }
                 else
@@ -59,12 +57,7 @@ namespace Vnrt.Utilities
                 if (file != null)
                 {
                     CachedFileManager.DeferUpdates(file);
-                    XmlSerializer serializer = new XmlSerializer(typeof(Game));
-                    using (StringWriter buffer = new StringWriter())
-                    {
-                        serializer.Serialize(buffer, game);
-                        await FileIO.WriteTextAsync(file, buffer.ToString());
-                    }
+                    await FileIO.WriteTextAsync(file, await Task.Run(() => JsonConvert.SerializeObject(game)));
                     FileUpdateStatus status = await CachedFileManager.CompleteUpdatesAsync(file);
                     if(status == FileUpdateStatus.Complete)
                     {

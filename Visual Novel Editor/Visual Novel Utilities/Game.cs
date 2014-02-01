@@ -8,12 +8,10 @@ using Windows.Storage;
 
 namespace Vnrt.Utilities
 {
-    [XmlRoot]
     public class Game
     {
-        public String Name { get; set; }
-        public String Author { get; set; }
-        [XmlArray(ElementName = "Scenes")]
+        public string Name { get; set; }
+        public string Author { get; set; }
         public List<Scene> Scenes { get; set; }
 
         public Game()

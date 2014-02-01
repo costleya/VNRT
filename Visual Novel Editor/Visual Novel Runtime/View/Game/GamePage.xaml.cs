@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Navigation;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Vnrt.Utilities;
+using System.Threading.Tasks;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -63,6 +64,10 @@ namespace Vnrt.Runtime
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+            GamePageView.ScriptNotify += (o, ev) =>
+            {
+                ResultText.Text = ev.Value;
+            };
         }
 
         /// <summary>
@@ -127,6 +132,11 @@ namespace Vnrt.Runtime
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(caller));
             }
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await GamePageView.InvokeScriptAsync("appendSpan", new string[0]);
         }
     }
 }

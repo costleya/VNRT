@@ -9,7 +9,6 @@ namespace Vnrt.Utilities
     public class Instance
     {
         public Dialog Dialog { get; set; }
-        [XmlArray(ElementName = "Characters")]
         public List<Character> Characters { get; set; }
 
         public Instance()

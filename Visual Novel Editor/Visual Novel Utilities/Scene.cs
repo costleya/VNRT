@@ -9,11 +9,9 @@ namespace Vnrt.Utilities
 {
     public class Scene
     {
-        [XmlAttribute]
         public string Id { get; set; }
-        public String BackgroundImage { get; set; }
-        public String BackgroundMusic { get; set; }
-        [XmlArray("Instances")]
+        public string BackgroundImage { get; set; }
+        public string BackgroundMusic { get; set; }
         public List<Instance> Instances { get; set; }
 
         public Scene()
