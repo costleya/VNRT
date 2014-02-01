@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual Novel Editor", "Visual Novel Editor\Visual Novel Editor.csproj", "{5D980CC8-49B4-480A-AB9F-2B655187CA1A}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual Novel Utilities", "Visual Novel Utilities\Visual Novel Utilities.csproj", "{595C4114-F7E6-4661-AB52-317E8B625FB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLTester", "XMLTester\XMLTester.csproj", "{EFE525A7-18B7-4BE9-9A9D-61AFB0E52547}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual Novel Web", "Visual Novel Web\Visual Novel Web.csproj", "{4308B846-515A-4018-BEC3-0297A9FD2265}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,16 @@ Global
 		{EFE525A7-18B7-4BE9-9A9D-61AFB0E52547}.Release|x86.ActiveCfg = Release|x86
 		{EFE525A7-18B7-4BE9-9A9D-61AFB0E52547}.Release|x86.Build.0 = Release|x86
 		{EFE525A7-18B7-4BE9-9A9D-61AFB0E52547}.Release|x86.Deploy.0 = Release|x86
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Release|ARM.ActiveCfg = Release|Any CPU
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Release|x64.ActiveCfg = Release|Any CPU
+		{4308B846-515A-4018-BEC3-0297A9FD2265}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
