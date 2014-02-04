@@ -59,7 +59,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chariot.jpg" />
     <Content Include="index.js" />
+    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="misaka_mikoto.jpg" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -106,6 +113,10 @@
       <SourceFiles Include=".\**\*.html" />
       <SourceFiles Include=".\**\*.css" />
       <SourceFiles Include=".\**\*.js" />
+      <SourceFiles Include=".\**\*.jpg" />
+      <SourceFiles Include=".\**\*.png" />
+      <SourceFiles Include=".\**\*.gif" />
+      <SourceFiles Include=".\**\*.svg" />
     </ItemGroup>
     <Copy SourceFiles="@(SourceFiles)" DestinationFolder=".\..\Visual Novel Runtime\Assets\Web" />
   </Target>

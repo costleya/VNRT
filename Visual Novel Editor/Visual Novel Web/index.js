@@ -15,7 +15,24 @@ function appendMore()
     window.external.notify("So it worked?!");
 }
 
-function recieveCommand(command, args)
+function setBackground(path)
 {
+    $("#container").css("background-image", "url('" + path + "')")
+}
 
+function setDialogText(text)
+{
+    $("#dialogBox").html(text);
+}
+
+function setCharacter(xPos, yPos, sprite)
+{
+    var addedCharacter = document.createElement("img");
+    $(addedCharacter).attr("src", sprite);
+    $(addedCharacter).css("position", "absolute");
+    $(addedCharacter).css("left", xPos);
+    $(addedCharacter).css("top", yPos);
+    $(addedCharacter).css("height", 300);
+    $(addedCharacter).css("width", 200);
+    $("#scene").append(addedCharacter);
 }

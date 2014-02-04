@@ -2,14 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>VNRT</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script src="Scripts/jquery-2.1.0.js"></script>
     <script src="index.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            setBackground("chariot.jpg");
+            setDialogText("Hello");
+            setCharacter(100, 100, "misaka_mikoto.jpg");
+        });
+    </script>
 </head>
 <body>
     <div id="container">
-        <span>Hello World!</span>
-        <svg width="400" height="110">
-            <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" onclick="appendMore()" />
-        </svg>
+        <div id="scene">
+            <div id="dialogBox">
+
+            </div>
+        </div>
     </div>
 </body>
 </html>
