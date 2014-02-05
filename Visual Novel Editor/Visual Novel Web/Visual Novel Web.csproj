@@ -63,6 +63,8 @@
     <Content Include="index.js" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="misaka_mikoto.jpg" />
+    <Content Include="momo.png" />
+    <Content Include="railroad.jpg" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\jquery-2.1.0.min.map" />

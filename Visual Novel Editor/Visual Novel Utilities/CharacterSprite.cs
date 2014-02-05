@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Vnrt.Utilities
 {
-    public class Character
+    public class CharacterSprite
     {
         public string Name { get; set; }
-        public List<CharacterSprite> CharacterSprites { get; set; }
+        public string Path { get; set; }
     }
 }
