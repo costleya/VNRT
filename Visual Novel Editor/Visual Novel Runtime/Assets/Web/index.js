@@ -29,10 +29,11 @@ function setCharacter(xPos, yPos, sprite)
 {
     var addedCharacter = document.createElement("img");
     $(addedCharacter).attr("src", sprite);
-    $(addedCharacter).css("position", "absolute");
-    $(addedCharacter).css("left", xPos);
-    $(addedCharacter).css("top", yPos);
-    $(addedCharacter).css("height", 300);
-    $(addedCharacter).css("width", 200);
+    //   $(addedCharacter).css("position", "absolute");
+    //   $(addedCharacter).css("left", xPos);
+    //   $(addedCharacter).css("top", yPos);
+    //$(addedCharacter).css("text-align","center");
+    $(addedCharacter).css("height", 600);
+    $(addedCharacter).css("width", 400);
     $("#scene").append(addedCharacter);
 }

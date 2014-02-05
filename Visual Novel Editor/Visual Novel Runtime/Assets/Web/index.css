@@ -29,6 +29,9 @@ body
     width: 100%;
     height: 100%;
     position: relative;
+    background-size: cover;
+    background-repeat:no-repeat;
+    text-align: center;
 }
 
 #dialogBox
@@ -39,4 +42,5 @@ body
     top: 80%;
     background-color: beige;
     position: relative;
+    text-align: left;
 }
