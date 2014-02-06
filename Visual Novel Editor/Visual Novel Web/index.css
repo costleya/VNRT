@@ -31,7 +31,6 @@ body
     position: relative;
     background-size: cover;
     background-repeat:no-repeat;
-    text-align: center;
 }
 
 #dialogBox
@@ -43,4 +42,10 @@ body
     background-color: beige;
     position: relative;
     text-align: left;
+}
+
+.characterImage
+{
+    position: absolute;
+    bottom: 20%;
 }

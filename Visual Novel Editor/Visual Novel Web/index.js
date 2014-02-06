@@ -25,15 +25,20 @@ function setDialogText(text)
     $("#dialogBox").html(text);
 }
 
-function setCharacter(xPos, yPos, sprite)
+function setCharacter(sprite, xPos, yPos)
 {
     var addedCharacter = document.createElement("img");
+    addedCharacter.classList.add("characterImage");
     $(addedCharacter).attr("src", sprite);
-    //   $(addedCharacter).css("position", "absolute");
-    //   $(addedCharacter).css("left", xPos);
-    //   $(addedCharacter).css("top", yPos);
-    //$(addedCharacter).css("text-align","center");
     $(addedCharacter).css("height", 600);
     $(addedCharacter).css("width", 400);
+    if (xPos)
+    {
+        $(addedCharacter).css("left", xPos);
+    }
+    if (yPos)
+    {
+        $(addedCharacter).css("margin-bottom", yPos);
+    }
     $("#scene").append(addedCharacter);
 }

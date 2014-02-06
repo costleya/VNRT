@@ -66,7 +66,7 @@ namespace Vnrt.Runtime
             this.navigationHelper.SaveState += navigationHelper_SaveState;
             GamePageView.ScriptNotify += (o, ev) =>
             {
-                ResultText.Text = ev.Value;
+
             };
         }
 
@@ -132,11 +132,6 @@ namespace Vnrt.Runtime
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(caller));
             }
-        }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            await GamePageView.InvokeScriptAsync("appendSpan", new string[0]);
         }
     }
 }
