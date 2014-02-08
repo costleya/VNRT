@@ -9,9 +9,51 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid>
             <WebView x:Name="GamePageView" Source="ms-appx-web:///Assets/Web/index.html" />
         </Grid>
     </Grid>
+    
+    <Page.TopAppBar>
+        <AppBar x:Name="topAppBar" IsSticky="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Left -->
+                <StackPanel x:Name="leftAppBarPanel" Orientation="Horizontal">
+                    <AppBarButton Label="Home" Icon="Home" />
+                </StackPanel>
+
+                <!-- Right -->
+                <!--<StackPanel x:Name="rightAppBarPanel" Orientation="Horizontal" HorizontalAlignment="Right">
+                </StackPanel>-->
+            </Grid>
+        </AppBar>
+    </Page.TopAppBar>
+
+    <Page.BottomAppBar>
+        <AppBar x:Name="bottomAppBar" IsSticky="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Left -->
+                <StackPanel Orientation="Horizontal">
+                    <AppBarButton Label="Load" Icon="OpenFile" />
+                    <AppBarButton Label="Save" Icon="Save"/>
+                </StackPanel>
+
+                <!-- Right -->
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                </StackPanel>-->
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
 </Page>
