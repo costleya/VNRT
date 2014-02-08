@@ -133,5 +133,10 @@ namespace Vnrt.Runtime
                 PropertyChanged(this, new PropertyChangedEventArgs(caller));
             }
         }
+
+        private void AppBarButton_Home_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 }

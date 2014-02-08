@@ -26,7 +26,7 @@
 
                 <!-- Left -->
                 <StackPanel Orientation="Horizontal">
-                    <AppBarButton x:Uid="GamePage_TopBarHome" Label="Home" Icon="Home" />
+                    <AppBarButton x:Uid="GamePage_TopBarHome" Label="Home" Icon="Home" Click="AppBarButton_Home_Click" />
                 </StackPanel>
 
                 <!-- Right -->
