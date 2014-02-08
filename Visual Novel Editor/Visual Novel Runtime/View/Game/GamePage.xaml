@@ -25,12 +25,12 @@
                 </Grid.RowDefinitions>
 
                 <!-- Left -->
-                <StackPanel x:Name="leftAppBarPanel" Orientation="Horizontal">
-                    <AppBarButton Label="Home" Icon="Home" />
+                <StackPanel Orientation="Horizontal">
+                    <AppBarButton x:Uid="GamePage_TopBarHome" Label="Home" Icon="Home" />
                 </StackPanel>
 
                 <!-- Right -->
-                <!--<StackPanel x:Name="rightAppBarPanel" Orientation="Horizontal" HorizontalAlignment="Right">
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 </StackPanel>-->
             </Grid>
         </AppBar>
@@ -46,13 +46,14 @@
 
                 <!-- Left -->
                 <StackPanel Orientation="Horizontal">
-                    <AppBarButton Label="Load" Icon="OpenFile" />
-                    <AppBarButton Label="Save" Icon="Save"/>
+                    <AppBarButton x:Uid="GamePage_BottomBarLoad" Label="Load" Icon="OpenFile" />
+                    <AppBarButton x:Uid="GamePage_BottomBarSave" Label="Save" Icon="Save" />
                 </StackPanel>
 
                 <!-- Right -->
-                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                </StackPanel>-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <AppBarButton x:Uid="GamePage_BottomBarSkip" Label="Skip Mode" Icon="Next" />
+                </StackPanel>
             </Grid>
         </AppBar>
     </Page.BottomAppBar>

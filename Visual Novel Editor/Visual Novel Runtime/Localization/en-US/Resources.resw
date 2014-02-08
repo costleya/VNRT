@@ -137,6 +137,18 @@ Omar007</value>
   <data name="AppNameTextBlock.Text" xml:space="preserve">
     <value>VNRT</value>
   </data>
+  <data name="GamePage_BottomBarLoad.Label" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="GamePage_BottomBarSave.Label" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="GamePage_BottomBarSkip.Label" xml:space="preserve">
+    <value>Skip Mode</value>
+  </data>
+  <data name="GamePage_TopBarHome.Label" xml:space="preserve">
+    <value>Home</value>
+  </data>
   <data name="OptionsFlyout_AudioHeader.Text" xml:space="preserve">
     <value>Audio Options</value>
   </data>
