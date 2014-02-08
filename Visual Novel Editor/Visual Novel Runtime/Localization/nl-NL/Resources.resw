@@ -121,7 +121,7 @@
     <value>Over</value>
   </data>
   <data name="AboutFlyout_AboutBody.Text" xml:space="preserve">
-    <value>Geweldig VNRT 'over' pagina inhoud!</value>
+    <value>De VNRT Runtime is Visual Novel app. Visual Novels die gemaakt zijn met de VRNT Editor kunnen ingeladen en gespeeld worden met deze app.</value>
   </data>
   <data name="AboutFlyout_AboutHeader.Text" xml:space="preserve">
     <value>Over</value>
@@ -137,6 +137,21 @@ Omar007</value>
   <data name="AppNameTextBlock.Text" xml:space="preserve">
     <value>VNRT</value>
   </data>
+  <data name="OptionsFlyout_AudioHeader.Text" xml:space="preserve">
+    <value>Geluids Opties</value>
+  </data>
+  <data name="OptionsFlyout_Autosave.Header" xml:space="preserve">
+    <value>Automatisch opslaan bij vragen</value>
+  </data>
+  <data name="OptionsFlyout_GameHeader.Text" xml:space="preserve">
+    <value>Spel Opties</value>
+  </data>
+  <data name="OptionsFlyout_Music.Header" xml:space="preserve">
+    <value>Muziek Volume</value>
+  </data>
+  <data name="OptionsFlyout_SoundFX.Header" xml:space="preserve">
+    <value>Geluidseffecten Volume</value>
+  </data>
   <data name="PickGameButton.Content" xml:space="preserve">
     <value>Kies Spel</value>
   </data>
@@ -145,5 +160,8 @@ Omar007</value>
   </data>
   <data name="SettingsPaneAbout" xml:space="preserve">
     <value>Over</value>
+  </data>
+  <data name="SettingsPaneOptions" xml:space="preserve">
+    <value>Opties</value>
   </data>
 </root>

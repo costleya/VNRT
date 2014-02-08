@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Vnrt.Editor.View.Settings;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ApplicationSettings;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -80,6 +83,22 @@ sealed partial class App : Application
         }
         // Ensure the current window is active
         Window.Current.Activate();
+    }
+
+    protected override void OnWindowCreated(WindowCreatedEventArgs args)
+    {
+        SettingsPane.GetForCurrentView().CommandsRequested += (s, e) =>
+        {
+            string aboutFlyoutName = ResourceLoader.GetForCurrentView().GetString("SettingsPaneAbout");
+            SettingsCommand aboutCommand = new SettingsCommand("about", aboutFlyoutName,
+                    (handler) =>
+                    {
+                        new AboutSettingsFlyout().Show();
+                    });
+            e.Request.ApplicationCommands.Add(aboutCommand);
+        };
+
+        base.OnWindowCreated(args);
     }
 
     /// <summary>

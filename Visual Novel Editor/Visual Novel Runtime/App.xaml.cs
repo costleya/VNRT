@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Vnrt.Runtime.View.Settings;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.ApplicationSettings;
@@ -92,14 +93,21 @@ namespace Vnrt.Runtime
         {
             SettingsPane.GetForCurrentView().CommandsRequested += (s, e) =>
             {
-                string aboutFlyoutName = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView().GetString("SettingsPaneAbout");
-                SettingsCommand defaultsCommand = new SettingsCommand("about", aboutFlyoutName,
+                string aboutFlyoutName = ResourceLoader.GetForCurrentView().GetString("SettingsPaneAbout");
+                SettingsCommand aboutCommand = new SettingsCommand("about", aboutFlyoutName,
                         (handler) =>
                 {
-                    AboutSettingsFlyout sf = new AboutSettingsFlyout();
-                    sf.Show();
+                    new AboutSettingsFlyout().Show();
                 });
-                e.Request.ApplicationCommands.Add(defaultsCommand);
+                e.Request.ApplicationCommands.Add(aboutCommand);
+
+                string optionsFlyoutName = ResourceLoader.GetForCurrentView().GetString("SettingsPaneOptions");
+                SettingsCommand optionsCommand = new SettingsCommand("options", optionsFlyoutName,
+                        (handler) =>
+                {
+                    new OptionsSettingsFlyout().Show();
+                });
+                e.Request.ApplicationCommands.Add(optionsCommand);
             };
 
             base.OnWindowCreated(args);
