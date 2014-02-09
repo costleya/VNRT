@@ -17,7 +17,7 @@ function appendMore()
 
 function setBackground(path)
 {
-    $("#container").css("background-image", "url('" + path + "')")
+    $("#scene").css("background-image", "url('" + path + "')")
 }
 
 function setDialogText(text)
