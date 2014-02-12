@@ -22,7 +22,7 @@ function setBackground(path)
 
 function setDialogText(text)
 {
-    $("#dialogBox").html(text);
+    $("#dialog").html(text);
 }
 
 function setCharacter(sprite, xPos, yPos)
