@@ -1,4 +1,5 @@
-function appendSpan() {
+function appendSpan()
+{
     var addedSpan = document.createElement("span");
     addedSpan.innerHTML = "This was added";
     addedSpan.style.color = "blue";
