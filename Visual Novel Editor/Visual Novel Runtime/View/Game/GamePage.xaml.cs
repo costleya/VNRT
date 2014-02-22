@@ -1,22 +1,13 @@
-﻿using Vnrt.Runtime.Common;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Vnrt.Runtime.Common;
 using Vnrt.Utilities;
-using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -134,9 +125,17 @@ namespace Vnrt.Runtime
             }
         }
 
-        private void AppBarButton_Home_Click(object sender, RoutedEventArgs e)
+        private async void AppBarButton_Home_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            string confirmMsg = ResourceLoader.GetForCurrentView().GetString("GameQuitConfirmMsg");
+            string yesMsg = ResourceLoader.GetForCurrentView().GetString("YesMsg");
+            string noMsg = ResourceLoader.GetForCurrentView().GetString("NoMsg");
+
+            MessageDialog confirmDialog = new MessageDialog(confirmMsg);
+            confirmDialog.Commands.Add(new UICommand(yesMsg, (cmd) => Frame.Navigate(typeof(MainPage))));
+            confirmDialog.Commands.Add(new UICommand(noMsg, (cmd) => { }));
+
+            await confirmDialog.ShowAsync();
         }
     }
 }

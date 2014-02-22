@@ -149,6 +149,12 @@ Omar007</value>
   <data name="GamePage_TopBarHome.Label" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="GameQuitConfirmMsg" xml:space="preserve">
+    <value>Any unsafed progress will be lost. Are you sure you want to return to the main menu?</value>
+  </data>
+  <data name="NoMsg" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="OptionsFlyout_AudioHeader.Text" xml:space="preserve">
     <value>Audio Options</value>
   </data>
@@ -175,5 +181,8 @@ Omar007</value>
   </data>
   <data name="SettingsPaneOptions" xml:space="preserve">
     <value>Options</value>
+  </data>
+  <data name="YesMsg" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

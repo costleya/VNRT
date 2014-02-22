@@ -149,6 +149,12 @@ Omar007</value>
   <data name="GamePage_TopBarHome.Label" xml:space="preserve">
     <value>Hoofdmenu</value>
   </data>
+  <data name="GameQuitConfirmMsg" xml:space="preserve">
+    <value>Niet opgeslagen vooruitgang gaat verloren. Weet je zeker dat je terug naar het hoofdmenu wil?</value>
+  </data>
+  <data name="NoMsg" xml:space="preserve">
+    <value>Nee</value>
+  </data>
   <data name="OptionsFlyout_AudioHeader.Text" xml:space="preserve">
     <value>Geluids Opties</value>
   </data>
@@ -175,5 +181,8 @@ Omar007</value>
   </data>
   <data name="SettingsPaneOptions" xml:space="preserve">
     <value>Opties</value>
+  </data>
+  <data name="YesMsg" xml:space="preserve">
+    <value>Ja</value>
   </data>
 </root>

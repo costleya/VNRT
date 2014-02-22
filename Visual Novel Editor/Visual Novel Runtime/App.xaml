@@ -2,10 +2,10 @@
     x:Class="Vnrt.Runtime.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:common="using:Vnrt.Runtime.Common">
+    xmlns:saveData="using:Vnrt.Runtime.SaveData">
     <Application.Resources>
         <ResourceDictionary>
-            <common:ProgramSettings x:Key="ProgramSettings" />
+            <saveData:ProgramSettings x:Key="ProgramSettings" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

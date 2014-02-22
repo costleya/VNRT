@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using Windows.Storage;
 
-namespace Vnrt.Runtime.Common
+namespace Vnrt.Runtime.SaveData
 {
     public class ProgramSettings
     {
