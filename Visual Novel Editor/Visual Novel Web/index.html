@@ -3,7 +3,6 @@
 <head>
     <title>VNRT</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="Scripts/jquery-2.1.0.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
@@ -16,15 +15,14 @@
             </div>
         </div>
     </div>
-
     <script>
-        setBackground("Images/railroad.jpg");
-        setDialogText("Konnichiwa~");
-        setCharacter("Images/momo.png", "45%");
-        $(".characterImage").on("dragstart", function ()
+        var req = new XMLHttpRequest();
+        req.onload = function(e)
         {
-            return false;
-        });
+            loadGame(req.responseText);
+        }
+        req.open("GET", "Visual Novel Web.vnrt", true);
+        req.send();
     </script>
 </body>
 </html>

@@ -18,24 +18,18 @@ namespace Vnrt.Runtime
     /// </summary>
     public sealed partial class GamePage : Page, INotifyPropertyChanged
     {
-
         private NavigationHelper navigationHelper;
-        private Game game;
+        private string game;
 
-        /// <summary>
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public Game CurrentGame
+        public string GetCurrentGame()
         {
-            get
-            {
-                return game;
-            }
-            set
-            {
-                game = value;
-                OnPropertyChanged();
-            }
+            return game;
+        }
+
+        private async void SetCurrentGame(string theGame)
+        {
+            game = theGame;
+            await GamePageView.InvokeScriptAsync("loadGame", new string[] { game });
         }
 
         /// <summary>
@@ -47,7 +41,6 @@ namespace Vnrt.Runtime
             get { return this.navigationHelper; }
         }
 
-
         public GamePage()
         {
             this.InitializeComponent();
@@ -55,10 +48,11 @@ namespace Vnrt.Runtime
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
-            GamePageView.ScriptNotify += (o, ev) =>
-            {
+            GamePageView.ScriptNotify += GamePageView_ScriptNotify;
+        }
 
-            };
+        private void GamePageView_ScriptNotify(object sender, NotifyEventArgs e)
+        {
         }
 
         /// <summary>
@@ -101,9 +95,14 @@ namespace Vnrt.Runtime
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if(e.Parameter != null)
+            if (e.Parameter != null)
             {
-                CurrentGame = e.Parameter as Game;
+                string gameDir = e.Parameter.ToString();
+                GamePageView.Navigate(new Uri("ms-appdata:///local/" + gameDir + "/index.html"));
+                GamePageView.NavigationCompleted += async (ob, ev) =>
+                {
+                    SetCurrentGame(await FileUtil.LoadGameAsJson(gameDir));
+                };
             }
             navigationHelper.OnNavigatedTo(e);
         }
@@ -113,7 +112,7 @@ namespace Vnrt.Runtime
             navigationHelper.OnNavigatedFrom(e);
         }
 
-        #endregion
+        #endregion NavigationHelper registration
 
         public event PropertyChangedEventHandler PropertyChanged;
 

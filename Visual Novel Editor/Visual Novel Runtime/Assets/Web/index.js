@@ -1,45 +1,45 @@
-function appendSpan()
+function loadGame(gameString)
 {
-    var addedSpan = document.createElement("span");
-    addedSpan.innerHTML = "This was added";
-    addedSpan.style.color = "blue";
-    document.getElementById("container").appendChild(addedSpan);
-    window.external.notify("I added");
-}
-
-function appendMore()
-{
-    var addedSpan = document.createElement("span");
-    addedSpan.innerHTML = "This was added... again";
-    addedSpan.style.color = "red";
-    document.getElementById("container").appendChild(addedSpan);
-    window.external.notify("So it worked?!");
+    var game = JSON.parse(gameString);
+    setBackground(game.Scenes[0].BackgroundImage);
+    setDialogText(game.Scenes[0].Instances[0].Dialog.Text);
+    setCharacter(game.Scenes[0].Instances[0].Characters[0].CharacterSprites[0].Path, "45%");
 }
 
 function setBackground(path)
 {
-    $("#scene").css("background-image", "url('" + path + "')")
+    document.getElementById("scene").style.backgroundImage = "url('" + path + "')";
 }
 
 function setDialogText(text)
 {
-    $("#dialog").html(text);
+    document.getElementById("dialog").innerHTML = text;
 }
 
 function setCharacter(sprite, xPos, yPos)
 {
     var addedCharacter = document.createElement("img");
+    var src = document.createAttribute("src");
+    var height = document.createAttribute("height");
+    var width = document.createAttribute("width");
+    src.nodeValue = sprite;
+    height.nodeValue = 600;
+    width.nodeValue = 400;
     addedCharacter.classList.add("characterImage");
-    $(addedCharacter).attr("src", sprite);
-    $(addedCharacter).css("height", 600);
-    $(addedCharacter).css("width", 400);
+    addedCharacter.attributes.setNamedItem(src);
+    addedCharacter.attributes.setNamedItem(height);
+    addedCharacter.attributes.setNamedItem(width);
     if (xPos)
     {
-        $(addedCharacter).css("left", xPos);
+        addedCharacter.style.left = xPos;
     }
     if (yPos)
     {
-        $(addedCharacter).css("margin-bottom", yPos);
+        addedCharacter.style.marginBottom = yPos;
     }
-    $("#scene").append(addedCharacter);
+    addedCharacter.addEventListener("dragstart", function ()
+    {
+        return false;
+    }, false);
+    document.getElementById("scene").appendChild(addedCharacter);
 }

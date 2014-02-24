@@ -160,16 +160,6 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="Assets\Web\Images\chariot.jpg" />
-    <Content Include="Assets\Web\Images\misaka_mikoto.jpg" />
-    <Content Include="Assets\Web\Images\momo.png" />
-    <Content Include="Assets\Web\Images\railroad.jpg" />
-    <Content Include="Assets\Web\index.css" />
-    <Content Include="Assets\Web\index.html" />
-    <Content Include="Assets\Web\index.js" />
-    <Content Include="Assets\Web\Scripts\jquery-2.1.0.intellisense.js" />
-    <Content Include="Assets\Web\Scripts\jquery-2.1.0.js" />
-    <Content Include="Assets\Web\Scripts\jquery-2.1.0.min.js" />
     <Content Include="Common\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

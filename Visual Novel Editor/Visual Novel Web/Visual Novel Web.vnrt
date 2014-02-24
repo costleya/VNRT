@@ -1,0 +1,1 @@
+{"Name":"Super Stream Fighter","Author":"David Patry","Scenes":[{"Id":"ce779201-d6e0-42f7-856c-7ca6d5061328","BackgroundImage":"Images/Backgrounds/railroad.jpg","BackgroundMusic":"B.wav","Instances":[{"Dialog":{"Text":"Sample Text"},"Characters":[{"Name":"Momo","CharacterSprites":[{"Name":"Friendly","Path":"Images/Characters/Momo/Friendly.png"}]}]}]}]}

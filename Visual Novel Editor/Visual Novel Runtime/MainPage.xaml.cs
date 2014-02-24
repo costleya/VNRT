@@ -1,19 +1,9 @@
-﻿using Vnrt.Runtime.Common;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using System;
+using Vnrt.Runtime.Common;
+using Vnrt.Utilities;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Vnrt.Utilities;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -24,7 +14,6 @@ namespace Vnrt.Runtime
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
@@ -44,7 +33,6 @@ namespace Vnrt.Runtime
         {
             get { return this.navigationHelper; }
         }
-
 
         public MainPage()
         {
@@ -102,12 +90,12 @@ namespace Vnrt.Runtime
             navigationHelper.OnNavigatedFrom(e);
         }
 
-        #endregion
+        #endregion NavigationHelper registration
 
         private async void PickGameButton_Click(object sender, RoutedEventArgs e)
         {
-            Game game = await FileUtil.LoadGame();
-            Frame.Navigate(typeof(GamePage), game);
+            string gameDir = await FileUtil.LoadGameDirectory();
+            Frame.Navigate(typeof(GamePage), gameDir);
         }
     }
 }

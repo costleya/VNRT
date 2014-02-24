@@ -3,7 +3,6 @@
 <head>
     <title>VNRT</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="Scripts/jquery-2.1.0.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
@@ -16,15 +15,8 @@
             </div>
         </div>
     </div>
-
     <script>
-        setBackground("Images/railroad.jpg");
-        setDialogText("Konnichiwa~");
-        setCharacter("Images/momo.png", "45%");
-        $(".characterImage").on("dragstart", function ()
-        {
-            return false;
-        });
+        //loadGame({ "Name": "Super Stream Fighter", "Author": "David Patry", "Scenes": [{ "Id": "2654de21-669f-4600-a209-e99a597e72b2", "BackgroundImage": "Images/Backgrounds/railroad.jpg", "BackgroundMusic": "B.wav", "Instances": [{ "Dialog": { "Text": "Sample Text" }, "Characters": [{ "Name": "Momo", "CharacterSprites": [{ "Name": "Friendly", "Path": "Images/Characters/Momo/Friendly.png" }] }] }] }] });
     </script>
 </body>
 </html>

@@ -59,16 +59,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\chariot.jpg" />
+    <Content Include="Images\Backgrounds\chariot.jpg" />
     <Content Include="index.js" />
-    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
-    <Content Include="Images\misaka_mikoto.jpg" />
-    <Content Include="Images\momo.png" />
-    <Content Include="Images\railroad.jpg" />
-    <Content Include="Scripts\jquery-2.1.0.js" />
-    <Content Include="Scripts\jquery-2.1.0.min.js" />
-    <Content Include="Scripts\jquery-2.1.0.min.map" />
-    <Content Include="packages.config" />
+    <Content Include="Images\Characters\misaka_mikoto.jpg" />
+    <Content Include="Images\Characters\Momo\Friendly.png" />
+    <Content Include="Images\Backgrounds\railroad.jpg" />
+    <Content Include="Visual Novel Web.vnrt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -83,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -110,16 +109,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="AfterBuild">
-    <ItemGroup>
-      <SourceFiles Include=".\**\*.html" />
-      <SourceFiles Include=".\**\*.css" />
-      <SourceFiles Include=".\**\*.js" />
-      <SourceFiles Include=".\**\*.jpg" />
-      <SourceFiles Include=".\**\*.png" />
-      <SourceFiles Include=".\**\*.gif" />
-      <SourceFiles Include=".\**\*.svg" />
-    </ItemGroup>
-    <Copy SourceFiles="@(SourceFiles)" DestinationFolder=".\..\Visual Novel Runtime\Assets\Web\%(RecursiveDir)" />
-  </Target>
 </Project>
