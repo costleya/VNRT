@@ -3,40 +3,72 @@ function loadGame(gameString)
     var game = JSON.parse(gameString);
     setBackground(game.Scenes[0].BackgroundImage);
     setDialogText(game.Scenes[0].Instances[0].Dialog.Text);
-    setCharacter(game.Scenes[0].Instances[0].Characters[0].CharacterSprites[0].Path, "45%");
+    setCharacter(game.Scenes[0].Instances[0].Characters[1].CharacterSprites[0].Path);
+    setMusic(game.Scenes[0].BackgroundMusic);
 }
-
+var TextHelper = new textHelper();
 function setBackground(path)
 {
     document.getElementById("scene").style.backgroundImage = "url('" + path + "')";
 }
+function setMusic(path) {
+    var audio = document.getElementById('audio');
+    var source = document.getElementById('mp3Source');
+    source.src = path;
+
+    audio.load(); //call this to just preload the audio without playing
+    audio.play(); //call this to play the song right away
+}
+
+function textHelper() { // constructor function
+    this.cptLines = 0; // Public variable
+}
 
 function setDialogText(text)
 {
-    document.getElementById("dialog").innerHTML = text;
+    //Replace . ? !  by $1| To keep then in the split.
+    var lines = text.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
+    var array = [];
+
+    lines.forEach(function (line) {
+        if (line.length < 280)
+        {
+            array.push(line);
+        }
+        else
+        {
+            array.push(line.substring(0, line.indexOf(" ", 300)));
+            array.push(line.substring(line.indexOf(" ", 300) + 1, line.length));
+        }
+    });
+
+    $('#dialogBox').click(function () {
+        if (TextHelper.cptLines != array.length)
+        {
+            $('#dialog').empty();
+            var spans = '<span>' + array[TextHelper.cptLines].split('').join('</span><span>') + '</span>' + "<span class=\"blink\">|</span>";
+            $(spans).hide().appendTo('.css-typing').each(function (i) {
+                $(this).delay(20 * i).css({
+                    display: 'inline',
+                    opacity: 0
+                }).animate({
+                    opacity: 1
+                }, 100);
+            });
+            TextHelper.cptLines++;
+        }
+    });  
 }
 
-function setCharacter(sprite, xPos, yPos)
+
+function setCharacter(sprite)
 {
     var addedCharacter = document.createElement("img");
     var src = document.createAttribute("src");
-    var height = document.createAttribute("height");
-    var width = document.createAttribute("width");
     src.nodeValue = sprite;
-    height.nodeValue = 600;
-    width.nodeValue = 400;
     addedCharacter.classList.add("characterImage");
     addedCharacter.attributes.setNamedItem(src);
-    addedCharacter.attributes.setNamedItem(height);
-    addedCharacter.attributes.setNamedItem(width);
-    if (xPos)
-    {
-        addedCharacter.style.left = xPos;
-    }
-    if (yPos)
-    {
-        addedCharacter.style.marginBottom = yPos;
-    }
+   
     addedCharacter.addEventListener("dragstart", function (e)
     {
         e.preventDefault();

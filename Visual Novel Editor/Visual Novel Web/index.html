@@ -1,27 +1,37 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>VNRT</title>
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css?version=51">
+    <script src="index.js" type="text/javascript" href="index.js?version=51"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
     <div id="container">
         <div id="scene">
+            <div id="Name">
+
+            </div>
             <div id="dialogBox">
-                <div id="dialog">
+                <div id="dialog" class="css-typing">
 
                 </div>
             </div>
         </div>
     </div>
+    <audio id="audio" hidden loop controls="controls">
+        <source id="oggSource" src="" type="audio/ogg"></source>
+        <source id="mp3Source" type="audio/mp3"></source>
+        Your browser does not support the audio format.
+    </audio>
     <script>
         var req = new XMLHttpRequest();
         req.onload = function(e)
         {
             loadGame(req.responseText);
         }
-        req.open("GET", "Visual Novel Web.vnrt", true);
+        req.open("GET", "Fate Servant and Cook.vnrt", true);
         req.send();
     </script>
 </body>
