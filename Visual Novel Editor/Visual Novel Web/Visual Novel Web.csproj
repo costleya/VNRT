@@ -62,7 +62,6 @@
   <ItemGroup>
     <Content Include="Images\Backgrounds\chariot.jpg" />
     <Content Include="index.js" />
-    <Content Include="Images\Characters\misaka_mikoto.jpg" />
     <Content Include="Images\Characters\Momo\Friendly.png" />
     <Content Include="Images\Backgrounds\railroad.jpg" />
     <Content Include="Visual Novel Web.vnrt" />
